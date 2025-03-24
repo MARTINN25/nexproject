@@ -72,3 +72,63 @@ html::-webkit-scrollbar {
 		rgba(48, 211, 217, 0.18) 84%
 	);
 }
+
+@keyframes gradientMove {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.my-radial-gradient-block1 {
+	background: linear-gradient(
+		135deg,
+		rgba(169, 160, 37) 0%,
+		rgba(136, 54, 54) 22%,
+		rgba(91, 90, 164) 66%,
+		rgba(0, 153, 255) 100%
+	);
+	background-size: 400% 400%;
+	animation: gradientMove 4s ease infinite;
+}
+
+.my-radial-gradient-block2 {
+	background: linear-gradient(
+		235deg,
+		rgba(91, 90, 164) 10%,
+		rgba(30, 71, 255) 22%,
+		rgba(255, 244, 95) 71%,
+		rgba(0, 153, 255) 100%
+	);
+	background-size: 400% 400%;
+	animation: gradientMove 4s ease infinite;
+}
+
+.my-radial-gradient-block3 {
+	background: linear-gradient(
+		145deg,
+		rgba(91, 90, 164) 14%,
+		rgba(169, 160, 37) 26%,
+		rgba(136, 54, 54) 48%,
+		rgba(0, 153, 255) 100%
+	);
+	background-size: 400% 400%;
+	animation: gradientMove 4s ease infinite;
+}
+
+.my-radial-gradient-block4 {
+	background: linear-gradient(
+		235deg,
+		rgba(169, 160, 37) 0%,
+		rgba(91, 90, 164) 43%,
+		rgba(136, 54, 54) 67%,
+		rgba(0, 153, 255) 100%
+	);
+	background-size: 400% 400%;
+	animation: gradientMove 4s ease infinite;
+}

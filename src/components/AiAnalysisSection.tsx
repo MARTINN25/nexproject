@@ -9,25 +9,29 @@ export default function FancyBlocksRow() {
 			id: 1,
 			title: 'Real-time Tracking',
 			text: 'Monitor blockchain transactions in real-time to stay updated on any changes without delays.',
-			icon: '/icons/real-time-tracking.svg',
+			video: '/animation/real-time-tracking.mp4',
+			gradientClass: 'my-radial-gradient-block1',
 		},
 		{
 			id: 2,
 			title: 'AI Analysis',
 			text: 'AI offers in-depth analysis of transactions and wallet activities, supporting better decision-making.',
-			icon: '/icons/analysis.svg',
+			video: '/animation/analysis.mp4',
+			gradientClass: 'my-radial-gradient-block2',
 		},
 		{
 			id: 3,
 			title: 'User-Friendly Interface',
 			text: 'An intuitive interface for quick access to information and transaction management, customizable to your needs.',
-			icon: '/icons/user-friendly-interface.svg',
+			video: '/animation/user-friendly-interface.mp4',
+			gradientClass: 'my-radial-gradient-block3',
 		},
 		{
 			id: 4,
 			title: 'Reputation Assessment',
 			text: 'A system that assesses the trustworthiness of market participants and their transactions.',
-			icon: '/icons/reputation-assessment.svg',
+			video: '/animation/reputation-assessment.mp4',
+			gradientClass: 'my-radial-gradient-block4',
 		},
 	]
 
@@ -95,7 +99,7 @@ export default function FancyBlocksRow() {
 						<div
 							key={block.id}
 							className={
-								'relative w-[250px] h-[250px] cursor-pointer transition-all duration-600 ' +
+								'relative w-[250px] h-[250px] cursor-pointer transition-all duration-600 flex items-center justify-center  ' +
 								(isDimmed ? 'opacity-50 translate-y-70' : '')
 							}
 							onMouseEnter={() => handleMouseEnter(block.id)}
@@ -103,13 +107,19 @@ export default function FancyBlocksRow() {
 							onClick={() => handleClick(block.id)}
 						>
 							{/* Градиентный слой (сияние) */}
-							<div
-								className='absolute inset-0 bg-gradient-to-r from-[#A83D05] via-[#DD4F8E] to-[#5590FF]
-                           blur-sm'
-							/>
+							<div className={`absolute inset-0 ${block.gradientClass}`} />
 							{/* Тёмный центр с иконкой */}
-							<div className='relative w-full h-full bg-[#1E1E1E] rounded-lg flex items-center justify-center'>
-								<img src={block.icon} alt={block.title} className='w-8 h-8' />
+							<div className='relative w-[190px] h-[190px] bg-[#000000] rounded-2xl flex items-center justify-center'>
+								{block.video && (
+									<video
+										src={block.video}
+										autoPlay
+										loop
+										muted
+										playsInline
+										className='w-[80px] h-auto'
+									/>
+								)}
 							</div>
 
 							{/* Текстовый блок сбоку при hover/active */}

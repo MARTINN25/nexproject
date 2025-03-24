@@ -1,5 +1,4 @@
-// Если в Next.js 13+ (App Router) вы используете хуки здесь, добавьте:
-// 'use client';
+'use client'
 
 import React from 'react'
 
@@ -47,50 +46,33 @@ export default function SevenRowsLayout() {
 		},
 
 		{
-			title: 'Transaction Details?',
-			text: 'Can you show the full transaction history for a specific wallet?',
+			title: 'Interacted Contracts?',
+			text: 'What smart contracts has this wallet interacted with?',
 		},
 		{
-			title: 'Wallet Balance?',
-			text: 'What is the current balance of this wallet?',
+			title: 'Top tokens?',
+			text: 'What are the top tokens in this wallet?',
 		},
 		{
-			title: 'Final Destination?',
-			text: 'Where was the last transaction from this wallet sent?',
+			title: 'Token Holdings?',
+			text: 'Which tokens are currently held in this wallet?',
 		},
 		{
-			title: 'Transaction Details?',
-			text: 'Can you show the full transaction history for a specific wallet?',
-		},
-
-		{
-			title: 'Wallet Balance?',
-			text: 'What is the current balance of this wallet?',
-		},
-		{
-			title: 'Final Destination?',
-			text: 'Where was the last transaction from this wallet sent?',
-		},
-		{
-			title: 'Transaction Details?',
-			text: 'Can you show the full transaction history for a specific wallet?',
-		},
-		{
-			title: 'Wallet Balance?',
-			text: 'What is the current balance of this wallet?',
+			title: 'NFT Ownership?',
+			text: 'Does this wallet own any NFTs?',
 		},
 
 		{
-			title: 'Final Destination?',
-			text: 'Where was the last transaction from this wallet sent?',
+			title: 'Exchange Usage?',
+			text: 'Has this wallet interacted with any known exchanges?',
 		},
 		{
-			title: 'Transaction Details?',
-			text: 'Can you show the full transaction history for a specific wallet?',
+			title: 'Whale Wallet?',
+			text: 'Is this considered a whale wallet?',
 		},
 		{
-			title: 'Wallet Balance?',
-			text: 'What is the current balance of this wallet?',
+			title: 'Hourly Activity?',
+			text: 'When is this wallet most active?',
 		},
 		{
 			title: 'Final Destination?',
@@ -98,12 +80,29 @@ export default function SevenRowsLayout() {
 		},
 
 		{
-			title: 'Transaction Details?',
-			text: 'Can you show the full transaction history for a specific wallet?',
+			title: 'Behavior Pattern?',
+			text: 'What is the typical transaction behavior of this wallet?',
 		},
 		{
-			title: 'Wallet Balance?',
-			text: 'What is the current balance of this wallet?',
+			title: 'Geo Guess (Optional)?',
+			text: 'Can you guess the region this wallet may be from based on activity?',
+		},
+		{
+			title: 'Gas Fees Overview?',
+			text: 'What are the average gas fees for this wallet?',
+		},
+		{
+			title: 'Active or Dormant?',
+			text: 'Is this wallet currently active or inactive?',
+		},
+
+		{
+			title: 'Who owns this wallet?',
+			text: 'Can you identify the owner of this wallet?',
+		},
+		{
+			title: 'Wallet age?',
+			text: 'How old is this wallet?',
 		},
 		// Итого 17 штук (2+3+2+3+2+2+3=17).
 	]
@@ -153,6 +152,7 @@ export default function SevenRowsLayout() {
                       bg-[#0C0C0C]/30
                       px-6 py-2.5
                       rounded
+											cursor-pointer
                       text-white
                        transform transition-all duration-300
                         hover:scale-110         

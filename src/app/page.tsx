@@ -5,10 +5,28 @@ import AiAnalysisSection from '@/components/AiAnalysisSection'
 import BlockchainCapabilities from '@/components/BlockchainCapabilities'
 import ChatWaveBlock from '@/components/ChatWaveBlock'
 import Footer from '@/components/Footer'
+import { TypewriterText } from '@/components/TypewriterText'
+import { StaggeredBlock } from '@/components/StaggeredBlock'
+import HoverPills from '@/components/HoverPills'
+
+// Пример массива «плашек»
+const pills = [
+	'Secure',
+	'AI-Powered',
+	'Real-Time',
+	'Advanced Analytics',
+	'Seamless Integration',
+	'Multi-Chain Support',
+]
 
 export default function HomeMain() {
 	// Отслеживаем, прокрутил ли пользователь страницу
 	const [scrolled, setScrolled] = useState(false)
+
+	// Храним видимость каждого блока (по умолчанию false = скрыт)
+	const [blocksVisible, setBlocksVisible] = useState<boolean[]>(
+		Array(pills.length).fill(false)
+	)
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -23,6 +41,38 @@ export default function HomeMain() {
 		window.addEventListener('scroll', handleScroll)
 		return () => window.removeEventListener('scroll', handleScroll)
 	}, [])
+
+	// При изменении `scrolled` — запускаем «постепенное» появление/исчезновение
+	useEffect(() => {
+		// Копия массива, чтобы не мутировать стейт напрямую
+		const newVisibility = Array(pills.length).fill(false)
+
+		if (scrolled) {
+			// Если прокрутка вниз (scrolled = true),
+			// по очереди выставляем true
+			pills.forEach((_, i) => {
+				setTimeout(() => {
+					setBlocksVisible(prev => {
+						const arr = [...prev]
+						arr[i] = true
+						return arr
+					})
+				}, i * 200) // задержка 200ms между блоками
+			})
+		} else {
+			// Если прокрутка вверх (scrolled = false),
+			// по очереди выставляем false (стираем)
+			pills.forEach((_, i) => {
+				setTimeout(() => {
+					setBlocksVisible(prev => {
+						const arr = [...prev]
+						arr[i] = false
+						return arr
+					})
+				}, i * 200)
+			})
+		}
+	}, [scrolled])
 
 	return (
 		<div className='bg-black text-white '>
@@ -56,51 +106,47 @@ export default function HomeMain() {
 				</h1>
 			</section>
 			{/* ОСТАЛЬНЫЕ БЛОКИ — появляются при прокрутке (opacity-0 -> opacity-100) */}
-			<section className='max-w-3xl mx-auto'>
+			<section
+				className={`
+         max-w-3xl mx-auto transition-opacity duration-[1000ms]
+          ${scrolled ? 'opacity-100' : 'opacity-0'}
+        `}
+			>
 				<div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch'>
 					{/* Левая колонка */}
 					<div className='flex flex-col justify-between'>
 						{/* Верхняя часть: заголовок и «пилюли» */}
 						<div>
-							<h2 className='text-[17px] font-light mb-4'>
-								Step into the future of blockchain and AI innovation with
-							</h2>
+							<TypewriterText
+								text='Step into the future of blockchain and AI innovation with'
+								speed={30}
+								className='text-[17px] font-light'
+								shouldType={scrolled}
+							/>
 
 							{/* Пилюли */}
-							<div className='flex flex-wrap gap-2 text-[14px]'>
-								<div className='px-2 py-1 text-[12px] bg-[#121212] text-[#A2A2A2] rounded'>
-									Secure
-								</div>
-								<div className='px-3 py-1 text-[12px] bg-[#121212] text-[#A2A2A2] rounded'>
-									AI-Powered
-								</div>
-								<div className='px-3 py-1 text-[12px] bg-[#121212] text-[#A2A2A2] rounded'>
-									Real-Time
-								</div>
-								<div className='px-3 py-1 text-[12px] bg-[#121212] text-[#A2A2A2] rounded'>
-									Advanced Analytics
-								</div>
-								<div className='px-3 py-1 text-[12px] bg-[#121212] text-[#A2A2A2] rounded'>
-									Seamless Integration
-								</div>
-								<div className='px-3 py-1 text-[12px] bg-[#121212] text-[#A2A2A2] rounded'>
-									Multi-Chain Support
-								</div>
+							<div className='flex flex-wrap gap-2 mt-4 text-[14px]'>
+								<HoverPills visible={scrolled} />
 							</div>
 						</div>
 
 						{/* Нижняя часть: кнопка GET */}
 						<div>
-							<button className='px-9 py-2 bg-[#1E1E1E] text-[#F2F2F2] text-[12px] rounded hover:bg-[#333333] transition-colors'>
-								GET
+							<button className='px-9 py-2 bg-[#1E1E1E] cursor-pointer text-[#F2F2F2] text-[12px] rounded hover:bg-[#333333] transition-colors'>
+								Join Waitlist
 							</button>
 						</div>
 					</div>
 
 					{/* Правая колонка: анимация или другой контент */}
 					<div className='flex items-center justify-center bg-white rounded w-[411px] h-[384px]'>
-						<p className='text-gray-500'>Animation placeholder</p>
-						{/* Замените на ваш анимированный компонент / Canvas / видео и т.д. */}
+						<video
+							src='/animation/HomeBlock.mp4'
+							autoPlay
+							loop
+							muted
+							playsInline
+						/>
 					</div>
 				</div>
 			</section>
