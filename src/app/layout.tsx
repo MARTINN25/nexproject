@@ -1,21 +1,17 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { AuthProvider } from '@/contexts/AuthContext'
 import './globals.css'
+import { Inter } from 'next/font/google'
+import { headers } from 'next/headers'
 import Sidebar from '@/components/Sidebar'
+import { AuthProvider } from '@/contexts/AuthContext'
 
-const inter = Inter({
-	subsets: ['latin'],
-	weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-	variable: '--font-inter',
-})
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
-export const metadata: Metadata = {
-	title: 'NEX.AI',
-	description: 'NEX.AI - Home',
+export const metadata = {
+	title: 'NEXN.AI',
+	description: 'NEXN.AI - Home',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: {
 	children: React.ReactNode
@@ -24,10 +20,7 @@ export default function RootLayout({
 		<html lang='en' className={inter.className}>
 			<body className='bg-black text-white'>
 				<AuthProvider>
-					{/* Сайдбар слева */}
 					<Sidebar />
-
-					{/* Основной контент справа */}
 					<main>{children}</main>
 				</AuthProvider>
 			</body>

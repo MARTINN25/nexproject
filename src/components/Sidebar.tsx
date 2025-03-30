@@ -18,7 +18,7 @@ export default function Sidebar() {
 					<img src='/icons/logo.svg' alt='Logo' className='h-[30px] w-[30px]' />
 					{isOpen && (
 						<span className='ml-3 font-light text-[16px] transition-opacity duration-300 delay-300 opacity-0 animate-fade-in'>
-							NEX.AI
+							NEXN.AI
 						</span>
 					)}
 				</div>
@@ -44,7 +44,7 @@ export default function Sidebar() {
 					<ul className='space-y-2'>
 						<li>
 							<Link
-								href='/home'
+								href='/chat'
 								className='flex items-center p-2 hover:text-[#414141]'
 							>
 								<img

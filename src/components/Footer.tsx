@@ -5,7 +5,7 @@ export default function Footer() {
 				{/* Левая колонка */}
 				<div className='md:flex-1'>
 					<div className='flex items-center mb-4'>
-						<h2 className='text-white text-[18px] font-light'>NEX.AI</h2>
+						<h2 className='text-white text-[18px] font-light'>NEXN.AI</h2>
 						<img
 							src='/icons/logo.svg'
 							alt='logo'

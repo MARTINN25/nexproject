@@ -6,7 +6,6 @@ import BlockchainCapabilities from '@/components/BlockchainCapabilities'
 import ChatWaveBlock from '@/components/ChatWaveBlock'
 import Footer from '@/components/Footer'
 import { TypewriterText } from '@/components/TypewriterText'
-import { StaggeredBlock } from '@/components/StaggeredBlock'
 import HoverPills from '@/components/HoverPills'
 
 // Пример массива «плашек»
@@ -102,7 +101,7 @@ export default function HomeMain() {
       ${scrolled ? '' : ''}
     `}
 				>
-					NEX.AI
+					NEXN.AI
 				</h1>
 			</section>
 			{/* ОСТАЛЬНЫЕ БЛОКИ — появляются при прокрутке (opacity-0 -> opacity-100) */}
@@ -132,9 +131,12 @@ export default function HomeMain() {
 
 						{/* Нижняя часть: кнопка GET */}
 						<div>
-							<button className='px-9 py-2 bg-[#1E1E1E] cursor-pointer text-[#F2F2F2] text-[12px] rounded hover:bg-[#333333] transition-colors'>
+							<a
+								href='/auth/registration'
+								className='px-9 py-2 bg-[#1E1E1E] cursor-pointer text-[#F2F2F2] text-[12px] rounded hover:bg-[#333333] transition-colors'
+							>
 								Join Waitlist
-							</button>
+							</a>
 						</div>
 					</div>
 
@@ -194,8 +196,8 @@ export default function HomeMain() {
 					{/* Тёмная «полоса» с описанием */}
 					<div className='bg-[#0C0C0C] inline-block rounded-md px-2 py-2 mb-6'>
 						<p className='text-[#979797] text-[12px]'>
-							Discover how NEX.AI uses AI to analyze blockchain transactions and
-							improve workflows.
+							Discover how NEXN.AI uses AI to analyze blockchain transactions
+							and improve workflows.
 						</p>
 					</div>
 
@@ -207,7 +209,7 @@ export default function HomeMain() {
 					<div className='flex justify-end items-center'>
 						<div className='flex items-center gap-2'>
 							<span className='text-[10px] text-white'>
-								see additional features of neX.ai
+								see additional features of neXN.ai
 							</span>
 							<div className='bg-[#2A2A2A] w-10 h-10 flex items-center justify-center rounded'>
 								{/* Иконка стрелки (пример с Heroicons) */}
@@ -232,7 +234,7 @@ export default function HomeMain() {
 				</div>
 			</section>
 
-			<section className='max-w-7xl mx-auto px-8 h-210'>
+			<section className='max-w-7xl mx-auto px-8 h-[46em]'>
 				<AiAnalysisSection />
 			</section>
 

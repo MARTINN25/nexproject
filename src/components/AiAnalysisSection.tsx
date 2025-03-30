@@ -88,7 +88,7 @@ export default function FancyBlocksRow() {
 			</p>
 
 			{/* Ряд блоков */}
-			<div className='flex gap-15 '>
+			<div className='flex gap-12 '>
 				{blocks.map(block => {
 					// Является ли этот блок «отображаемым»
 					const isDisplayed = displayId === block.id
@@ -99,8 +99,8 @@ export default function FancyBlocksRow() {
 						<div
 							key={block.id}
 							className={
-								'relative w-[250px] h-[250px] cursor-pointer transition-all duration-600 flex items-center justify-center  ' +
-								(isDimmed ? 'opacity-50 translate-y-70' : '')
+								'relative w-[250px] h-[250px] cursor-pointer transition-all duration-500 flex items-center justify-center ' +
+								(isDimmed ? 'opacity-50 translate-y-[250px]' : 'translate-y-0')
 							}
 							onMouseEnter={() => handleMouseEnter(block.id)}
 							onMouseLeave={() => handleMouseLeave(block.id)}
